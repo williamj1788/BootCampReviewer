@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Aleo|Fredoka+One');
 
-$MainColors1: white;
-$MainColors2: #04FF9B;
+$MainColors1: #F3F3F3;
+$MainColors2: #04cc7c;
 $BoxShadowsColors: rgba(0,0,0,0.16);
 $Offset: rgba(0,173,249,0.04);
 
@@ -99,9 +99,6 @@ $Offset: rgba(0,173,249,0.04);
     font-size: 40px;
     color: $MainColors1;
     text-decoration: none;
-    // display: block;
-    // height: fit-content;
-    // margin: auto;
     align-self: center;
     line-height: 0.9;
 }
@@ -115,5 +112,30 @@ $Offset: rgba(0,173,249,0.04);
     line-height: 0.9;
 }
 .bg-main{
-    background-image: linear-gradient(to bottom right,#28F3A2,#27E59A,#21FF64);
+    background-image: linear-gradient(to bottom right,#04cc7c,#27E59A,#04cc7c);
+
+}
+#Sort-Input{
+    width: 300px;
+}
+#prepend{
+    background-color: $MainColors2;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Aleo', serif;
+    color: $MainColors1;
+    border: 0;
+}
+
+.card-container{
+    display: flex;
+    width: 80%;
+    height: 939px;
+}
+.Campcard{
+    width: 360px;
+    height: 443px;
+    background-color: white;
+    border-radius: 41px;
+    box-shadow: 3px 6px 6px $BoxShadowsColors;
 }

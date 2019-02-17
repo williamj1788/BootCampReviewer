@@ -7,10 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './index.scss';
-import Login from './Login';
-import SignUp from './SignUp';
-import Browse from './Browse';
-import notFound from './notFound';
+import Login from './Components/Login';
+import SignUp from './Components/SignUp';
+import Browse from './Components/Browser/Browse';
+import notFound from './Components/notFound';
 
 
 const routing = (
