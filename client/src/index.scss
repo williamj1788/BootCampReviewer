@@ -80,3 +80,40 @@ $Offset: rgba(0,173,249,0.04);
     display: block;
     font-family: 'Aleo', serif;
 }
+#User-nav{
+    color: $MainColors1;
+    font-size: 40px;
+    position: relative;
+    bottom: 3px;
+}
+#User-nav:hover{
+    cursor: pointer;
+}
+#Brand{
+    font-size: 39px;
+    font-family: 'Fredoka One', cursive;
+    font-weight: bold;
+}
+.nav-Dash{
+    font-family: 'Aleo', serif;
+    font-size: 40px;
+    color: $MainColors1;
+    text-decoration: none;
+    // display: block;
+    // height: fit-content;
+    // margin: auto;
+    align-self: center;
+    line-height: 0.9;
+}
+.nav-Dash:hover{
+    text-decoration: none;
+    color: $MainColors1;
+}
+#nav-drop{
+    height: fit-content;
+    align-self: center;
+    line-height: 0.9;
+}
+.bg-main{
+    background-image: linear-gradient(to bottom right,#28F3A2,#27E59A,#21FF64);
+}

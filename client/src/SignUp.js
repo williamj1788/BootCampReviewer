@@ -15,7 +15,7 @@ export default class SignUp extends React.Component{
                     <div className="offset">
                         <p className="Main-Text pt-2 m-0">Get started!</p>
                         <label className="Main-Input-text m-0" for="user">Username</label>
-                        <input className="Main-Input form-control my-0 mx-auto w-50" autocomplete="off" type="text" name="user"/>
+                        <input className="Main-Input form-control my-0 mx-auto w-50" autoComplete="off" type="text" name="user"/>
                         <label className="Main-Input-text m-0" for="pass">Password</label>
                         <input className="Main-Input form-control my-0 mx-auto w-50" autocomplete="off" type="password" name="pass"/>
                         <button onClick={this.onClick} type="button" className="Main-button btn btn-main mt-5 mb-0 mx-auto" aria-pressed="true"> Sign up</button>
