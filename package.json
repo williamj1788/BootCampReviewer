@@ -12,6 +12,7 @@
   "author": "Jacquez Williams",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "concurrently": "^4.1.0",
     "node-sass": "^4.11.0",
     "react-router-dom": "^4.3.1"

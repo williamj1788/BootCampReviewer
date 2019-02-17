@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './Normalize.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
 import Login from './Login';
 import SignUp from './SignUp';
