@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 var navbarContent1 = {
     display: "flex", 
@@ -27,7 +27,7 @@ export default class BrowseNavbar extends React.Component{
                     <div style={navbarContent2}>
                         <Link to="/dashboard" className="nav-Dash">Dashboard</Link>
                         <div className="dropdown" id="nav-drop">
-                            <a className="dropdown-toggle" data-toggle="dropdown" id="User-nav">User</a>
+                            <div className="dropdown-toggle" data-toggle="dropdown" id="User-nav">User</div>
                             <div className="dropdown-menu">
                                 <Link to="/" className="dropdown-item">Sign out</Link>
                             </div>

@@ -11,6 +11,7 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import Browse from './Components/Browser/Browse';
 import notFound from './Components/notFound';
+const User = ({ match }) => <p>{match.params.id}</p>
 
 
 const routing = (
@@ -19,6 +20,7 @@ const routing = (
             <Switch>
                 <Route exact path="/" component={Login} />
                 <Route exact path="/SignUp" component={SignUp} />
+                <Route path="/browse/:id" component={User}/>
                 <Route exact path="/browse" component={Browse} />
                 <Route component={notFound} />
             </Switch>

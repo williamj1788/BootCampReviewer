@@ -129,13 +129,46 @@ $Offset: rgba(0,173,249,0.04);
 
 .card-container{
     display: flex;
-    width: 80%;
-    height: 939px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: fit-content;
+    height: 100%;
+    padding: 0 50px;
+    justify-content: center;
 }
 .Campcard{
-    width: 360px;
-    height: 443px;
+    width: 275px;
+    height: 430px;
     background-color: white;
     border-radius: 41px;
     box-shadow: 3px 6px 6px $BoxShadowsColors;
+    text-decoration: none;
+}
+.Campcard:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Campcard-title{
+    text-align: center;
+    color: #a80600;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Aleo', serif;
+}
+.Campcard-img{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+.Campcard-text{
+    padding: 0 30px;
+    text-align: center;
+    font-family: 'Aleo', serif;
+}
+.Campcard-info{
+    padding: 0 30px;
+    text-align: left;
+    font-family: 'Aleo', serif;
 }

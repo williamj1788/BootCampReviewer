@@ -19,7 +19,7 @@ export default class Browse extends React.Component{
                 <BrowseNavbar />
                 <div className="offset">
                     <BrowseSort />
-                    <BrowseCampCard />
+                    <BrowseCampCard history={this.props.history}/>
                 </div>
             </div>
         )
