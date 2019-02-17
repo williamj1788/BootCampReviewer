@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Aleo|Fredoka+One');
 
 $MainColors1: white;
+$MainColors2: #04FF9B;
+$BoxShadowsColors: rgba(0,0,0,0.16);
+$Offset: rgba(0,173,249,0.04);
 
 
 .Main-Background{
     background-image: linear-gradient(to bottom right,#28F3A2,#27E59A,#21FF64);
     width: 100%;
-    height: 1000px;
+    height: 925px;
 }
 .Main-Title{
     font-size: 68px;
@@ -24,7 +27,56 @@ $MainColors1: white;
 }
 
 .Main-login{
-    width: 483px;
-    height: 501px;
+    width: 450px;
+    height: 480px;
     background-color: white;
+    border-radius: 38px;
+    box-shadow: 8px 8px 6px $BoxShadowsColors;
+}
+.offset{
+    background-color: $Offset;
+    width: 100%;
+    height: 100%;
+}
+.Main-Text{
+    text-align: center;
+    color: $MainColors2;
+    font-size: 50px;
+    font-family: 'Aleo', serif;
+    font-weight: bold;
+}
+.Main-Input-text{
+    text-align: center;
+    color: $MainColors2;
+    font-size: 39px;
+    font-family: 'Aleo', serif;
+    display: block;
+}
+.Main-Input{
+    box-shadow: 1px 3px 6px $BoxShadowsColors;
+}
+.Main-button{
+    background-color: $MainColors2;
+    font-size: 39px;
+    border-radius: 19px;
+    display: block;
+    width: 367px;
+    height: 70px;
+}
+.btn-main{
+    color: $MainColors1;
+}
+.btn-main:hover{
+    background-color: #07bd74;
+    color: $MainColors1;
+}
+.Account-text{
+    color: $MainColors2;
+    font-family: 'Aleo', serif;
+    font-weight: bold;
+}
+.Account-link{
+    text-decoration: none;
+    display: block;
+    font-family: 'Aleo', serif;
 }
