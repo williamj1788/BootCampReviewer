@@ -172,3 +172,83 @@ $Offset: rgba(0,173,249,0.04);
     text-align: left;
     font-family: 'Aleo', serif;
 }
+.CampPage-nav{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.CampPage-nav-title{
+    font-size: 60px;
+    color: $MainColors1;
+    text-align: center;
+    display: block;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.CampPage-nav-btn{
+    display: block;
+    position: relative;
+    background-color: #E20000;
+    color: $MainColors1;
+    font-family: 'Aleo', serif;
+    font-size: 30px;
+    margin: auto;
+    top: 15px;
+}
+#container{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    min-width: fit-content;
+}
+.CampPage-logo{
+    display: block;
+    width: auto;
+    height: 180px;
+    position: relative;
+    left: 10%;
+}
+.CampPage-mission{
+    font-size: 55px;
+    font-family: 'Aleo', serif;
+    text-align: center;
+    width: 800px;
+
+}
+.CampPage-description{
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 5px 6px $BoxShadowsColors;
+}
+.CampPage-review{
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 5px 6px $BoxShadowsColors;
+}
+.CampPage-details{
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 5px 6px $BoxShadowsColors;
+}
+@media(max-width: 990px){
+    .CampPage-logo{
+        left: 0;
+    }
+    .CampPage-nav-btn{
+        top: 0px;
+    }
+}
+@media(max-width: 850px){
+    .CampPage-mission{
+        font-size: 4vw;
+        text-align: left;
+    }
+}
