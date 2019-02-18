@@ -215,6 +215,7 @@ $Offset: rgba(0,173,249,0.04);
     font-family: 'Aleo', serif;
     text-align: center;
     width: 800px;
+    font-weight: bold;
 
 }
 .CampPage-description{
@@ -237,6 +238,36 @@ $Offset: rgba(0,173,249,0.04);
     background-color: white;
     border-radius: 20px;
     box-shadow: 2px 5px 6px $BoxShadowsColors;
+}
+.CampPage-card-title{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Aleo', serif;
+    font-weight: bold;
+}
+.CampPage-description-info{
+    padding: 0 15px;
+    font-size: 18px;
+    font-family: 'Aleo', serif;
+    text-align: center;
+}
+.CampPage-details-info{
+    text-align: left;
+    padding: 0 15px;
+    font-family: 'Aleo', serif;
+}
+.CampPage-review-info{
+    width: 500px;
+    height: 270px;
+    resize: none;
+    border: 0;
+}
+.footer{
+    width: 100%;
+    height: 100px;
+}
+.CampPage-review-info:hover{
+    cursor: default;
 }
 @media(max-width: 990px){
     .CampPage-logo{

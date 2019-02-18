@@ -11,7 +11,7 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import Browse from './Components/Browser/Browse';
 import notFound from './Components/notFound';
-import CampPage from './Components/CampPage';
+import CampPage from './Components/CampPage/CampPage';
 
 
 
