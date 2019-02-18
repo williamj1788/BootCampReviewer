@@ -25,7 +25,8 @@ export default class BrowseNavbar extends React.Component{
                 <div style={navbarContent1}>
                     <Link to="/" className="navbar-brand" id="Brand">BootCampReviewer</Link>
                     <div style={navbarContent2}>
-                        <Link to="/dashboard" className="nav-Dash">Dashboard</Link>
+                    <Link to="/browse" className="nav-Dash mr-3" style={{display: this.props.display ? "initial": "none"}}>Browse</Link>
+                        <Link to="/dashboard" className="nav-Dash mr-3">Dashboard</Link>
                         <div className="dropdown" id="nav-drop">
                             <div className="dropdown-toggle" data-toggle="dropdown" id="User-nav">User</div>
                             <div className="dropdown-menu">

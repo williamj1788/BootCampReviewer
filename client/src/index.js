@@ -12,6 +12,7 @@ import SignUp from './Components/SignUp';
 import Browse from './Components/Browser/Browse';
 import notFound from './Components/notFound';
 import CampPage from './Components/CampPage/CampPage';
+import Dashboard from './Components/Dashboard';
 
 
 
@@ -23,6 +24,7 @@ const routing = (
                 <Route exact path="/SignUp" component={SignUp} />
                 <Route path="/browse/:id" component={CampPage}/>
                 <Route exact path="/browse" component={Browse} />
+                <Route exact path="/dashboard" component={Dashboard} />
                 <Route component={notFound} />
             </Switch>
         </div>

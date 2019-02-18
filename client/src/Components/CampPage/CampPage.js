@@ -4,6 +4,7 @@ import CampPageLogo from './CampPageLogo';
 import CampPageDescription from './CampPageDescription';
 import CampPageReview from './CampPageReview';
 import CampPageDetails from './CampPageDetails';
+import BrowseNavbar from '../Browser/BrowseNavbar';
 
 
 export default class CampPage extends React.Component{
@@ -12,6 +13,7 @@ export default class CampPage extends React.Component{
         return(
             <div>
                 <div className="offset">
+                    <BrowseNavbar display={true}/>
                     <div className="container-fluid">
                         <CampPageLogo history={this.props.history} />
                         <div className="row pt-3">

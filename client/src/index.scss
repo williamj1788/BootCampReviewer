@@ -101,10 +101,11 @@ $Offset: rgba(0,173,249,0.04);
     text-decoration: none;
     align-self: center;
     line-height: 0.9;
+    
 }
 .nav-Dash:hover{
     text-decoration: none;
-    color: $MainColors1;
+    color: #4e4d4d;
 }
 #nav-drop{
     height: fit-content;
@@ -268,6 +269,54 @@ $Offset: rgba(0,173,249,0.04);
 }
 .CampPage-review-info:hover{
     cursor: default;
+}
+.Dashboard-title{
+    font-size: 50px;
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+    color: $MainColors1;
+}
+.Dashboard-users-container{
+    background-color: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 800px;
+    height: 350px;
+    box-shadow: 5px 5px 6px $BoxShadowsColors;
+}
+.Dashboard-total{
+    font-size: 35px;
+    text-align: center;
+    color: $MainColors2;
+}
+.Dashboard-textarea{
+    display: block;
+    resize: none;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    color: $MainColors2;
+    font-size: 25px;
+    font-family: 'Aleo', serif;
+}
+.Dashboard-textarea:focus{
+    cursor: default;
+    outline: 0;
+}
+.Dashboard-bootcamp-container{
+    background-color: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 800px;
+    height: 350px;
+    box-shadow: 5px 5px 6px $BoxShadowsColors;
+}
+.Dashboard-users-text{
+    font-size: 20px;
+    color: $MainColors2;
 }
 @media(max-width: 990px){
     .CampPage-logo{
