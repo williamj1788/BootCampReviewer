@@ -318,6 +318,25 @@ $Offset: rgba(0,173,249,0.04);
     font-size: 20px;
     color: $MainColors2;
 }
+.Dashboard-form-container{
+    background-color: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 800px;
+    height: 700px;
+    box-shadow: 5px 5px 6px $BoxShadowsColors;
+}
+.Dashboard-form-text{
+    font-size: 25px;
+    color: $MainColors2;
+    font-family: 'Aleo', serif;
+    font-weight: bold;
+}
+.btn-main2{
+    background-color: $MainColors2;
+    color: $MainColors1;
+    display: block;
+}
 @media(max-width: 990px){
     .CampPage-logo{
         left: 0;
