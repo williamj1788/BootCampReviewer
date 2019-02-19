@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
+import { setUser } from '../action';
 
 const mapStateToProps = state => {
     return { user: state.user };
 }; 
-export function setUser(payload) {
-    return { type: "SET_USER", payload };
-};
 
 class SignUp extends React.Component{
     constructor(props){
@@ -31,6 +29,7 @@ class SignUp extends React.Component{
                 });
             }else{
                 this.props.dispatch(setUser(res));
+                localStorage.setItem('user',res);
                 this.props.history.push('/browse');
             }
         }
@@ -41,7 +40,6 @@ class SignUp extends React.Component{
     }
     
     render() {
-        console.log(this.props.user);
         return (
             <div className="Main-Background">
                 <h1 className="Main-Title m-0 pt-5">Boot Camp Review Site</h1>
