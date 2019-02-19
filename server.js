@@ -63,7 +63,29 @@ var server = http.createServer((req, res) => {
                 
             }); 
         })
-    }else{
+    }else if(data.type === 'Cards'){
+        fs.readFile('Bootcamps.json', (err,content) => {
+            if(err) throw err;
+            let camps = JSON.parse(content);
+            let cardData = {
+                bootcamps: []
+            }
+            camps.bootcamps.forEach((camp) =>{
+                let obj = {
+                    logo: camp.logo,
+                    description: camp.description,
+                    rating: camp.rating,
+                    cost: camp.cost,
+                    duration: camp.duration,
+                }
+                cardData.bootcamps.push(obj);
+            });
+            res.end(JSON.stringify(cardData));
+        })
+    }else if(data.type === 'create'){
+        
+    }
+    else{
         res.end("we got nothing");
     }
     

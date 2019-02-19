@@ -1,11 +1,32 @@
 import React from 'react';
 
 export default class DashboardForm extends React.Component{
+    
+    constructor(props){
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+    
+    handleSubmit(event){
+        event.preventDefault();
+        var form = document.getElementById("boot-form");
+        const data = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            let res = xhr.response;
+            console.log(res);
+        }
+        xhr.open('POST', "http://localhost:8080/?type=create",true);
+        xhr.send(data);
+        
+        return false;
+    }
+    
     render(){
         return(
             <div className="Dashboard-form-container my-3">
                 <div className="offset">
-                    <form className="container-fluid" action="http://localhost:8080/form" Method="POST" target="hiddenFrame">
+                    <form className="container-fluid" onSubmit={this.handleSubmit} id="boot-form">
                         <div className="row pt-3">
                             <div className="col-5">
                                 <label className="Dashboard-form-text" htmlFor="Name">Name:</label>
@@ -83,7 +104,6 @@ export default class DashboardForm extends React.Component{
                                 <button type="submit" className="btn btn-main2 mx-auto">Create new Bootcamp</button>
                             </div>
                         </div>
-                        <iframe title="hidden" name="hiddenFrame" style={{display: "none"}}></iframe>
                     </form>
                 </div>
             </div>
