@@ -11,6 +11,7 @@ var server = http.createServer((req, res) => {
     var data = q.query;
     if(data.type === 'signup'){
         fs.readFile('Users.json', (err,content) => {
+            if (err) throw err
             let form = new multiparty.Form();
             form.parse(req, function(err, fields, files) {
                 var userDatabase = JSON.parse(content);
@@ -38,9 +39,34 @@ var server = http.createServer((req, res) => {
                 
             }); 
         })
+    }else if(data.type === 'login'){
+        fs.readFile('Users.json', (err,content) => {
+            if(err) throw err;
+            let form = new multiparty.Form();
+            form.parse(req, function(err, fields, files) {
+                if(err) throw err;
+                var userDatabase = JSON.parse(content);
+                let newUser = fields.loginUser[0];
+                let newPass = fields.loginPass[0];
+                var found = false
+                userDatabase.users.forEach(user => {
+                    if(user.username === newUser && user.password === newPass){
+                        found = true;
+                        res.writeHead(200, {'content-type': 'text/plain'});
+                        res.end(newUser);
+                    }
+                });
+                if(!found){
+                    res.writeHead(200, {'content-type': 'text/plain'});
+                    res.end('not found');  
+                }
+                
+            }); 
+        })
     }else{
         res.end("we got nothing");
     }
+    
     
 });
 
