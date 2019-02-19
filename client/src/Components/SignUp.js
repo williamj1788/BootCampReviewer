@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
-export default class SignUp extends React.Component{
+const mapStateToProps = state => {
+    return { user: state.user };
+}; 
+export function setUser(payload) {
+    return { type: "SET_USER", payload };
+};
+
+class SignUp extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            res: ''
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -13,16 +24,24 @@ export default class SignUp extends React.Component{
         const data = new FormData(form);
         var xhr = new XMLHttpRequest();
         xhr.onload = () => {
-            console.log(xhr.response);
+            let res = xhr.response;
+            if(res === 'Taken'){
+                this.setState({
+                    res: 'Username has already been taken'
+                });
+            }else{
+                this.props.dispatch(setUser(res));
+                this.props.history.push('/browse');
+            }
         }
         xhr.open('POST', "http://localhost:8080/?type=signup",true);
         xhr.send(data);
-        // this.props.history.push('/browse');
         
         return false;
     }
     
     render() {
+        console.log(this.props.user);
         return (
             <div className="Main-Background">
                 <h1 className="Main-Title m-0 pt-5">Boot Camp Review Site</h1>
@@ -30,10 +49,11 @@ export default class SignUp extends React.Component{
                 <form className="Main-login my-0 mx-auto" onSubmit={this.handleSubmit} id="signUp-form">
                     <div className="offset">
                         <p className="Main-Text pt-2 m-0">Get started!</p>
-                        <label className="Main-Input-text m-0" htmlFor="user">Username</label>
-                        <input className="Main-Input form-control my-0 mx-auto w-50" autoComplete="off" type="text" name="user"/>
-                        <label className="Main-Input-text m-0" htmlFor="pass">Password</label>
-                        <input className="Main-Input form-control my-0 mx-auto w-50" autoComplete="off" type="password" name="pass"/>
+                        <label className="Main-Input-text m-0" htmlFor="signupUser">Username</label>
+                        <input className="Main-Input form-control my-0 mx-auto w-50" autoComplete="off" type="text" name="signupUser" minLength="8" required/>
+                        <label className="Main-Input-text m-0" htmlFor="signupPass">Password</label>
+                        <input className="Main-Input form-control my-0 mx-auto w-50" autoComplete="off" type="password" name="signupPass" minLength="8" required/>
+                        <p className="Main-res" style={{display: this.state.res ? 'block': 'none'}}>{this.state.res}</p>
                         <button type="submit" className="Main-button btn btn-main mt-5 mb-0 mx-auto" aria-pressed="true"> Sign up</button>
                         <div className="Account mt-3 mx-5" style={{display: "flex", justifyContent: "space-between"}}>
                             <p className="Account-text">Already Have An Account?</p>
@@ -45,3 +65,5 @@ export default class SignUp extends React.Component{
         );
     }
 }
+SignUp = connect(mapStateToProps)(SignUp)
+export default SignUp;

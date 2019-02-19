@@ -14,8 +14,8 @@ var server = http.createServer((req, res) => {
             let form = new multiparty.Form();
             form.parse(req, function(err, fields, files) {
                 var userDatabase = JSON.parse(content);
-                let newUser = fields.user[0];
-                let newPass = fields.pass[0];
+                let newUser = fields.signupUser[0];
+                let newPass = fields.signupPass[0];
                 var taken = false
                 userDatabase.users.forEach(user => {
                     if(user.username === newUser){
@@ -33,7 +33,7 @@ var server = http.createServer((req, res) => {
                         if (err) throw err;
                     })
                     res.writeHead(200, {'content-type': 'text/plain'});
-                    res.end('User Added');  
+                    res.end(newUser);  
                 }
                 
             }); 

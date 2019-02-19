@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
 import './Normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';
@@ -15,8 +14,6 @@ import Browse from './Components/Browser/Browse';
 import notFound from './Components/notFound';
 import CampPage from './Components/CampPage/CampPage';
 import Dashboard from './Components/Dashboard/Dashboard';
-
-
 
 const Root = ({ store }) => (
     <Provider store={store}>
@@ -33,8 +30,4 @@ const Root = ({ store }) => (
             </div>
         </Router>
     </Provider>
-)
-
-
-
-ReactDOM.render(<Root store={store} />, document.getElementById('root'));
+  )

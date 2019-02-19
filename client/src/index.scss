@@ -33,6 +33,17 @@ $Offset: rgba(0,173,249,0.04);
     border-radius: 38px;
     box-shadow: 8px 8px 6px $BoxShadowsColors;
 }
+.Main-res{
+    position: relative;
+    top: 25px;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    color: $MainColors2;
+    font-size: 20px;
+    font-family: 'Aleo', serif;
+}
 .offset{
     background-color: $Offset;
     width: 100%;
