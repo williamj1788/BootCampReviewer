@@ -9,7 +9,7 @@ export default class CampPageLogo extends React.Component{
             <div>
                 <div className="row">
                     <div className="col-sm-12 col-lg-10">
-                        <img src={logo} className="CampPage-logo mx-auto pt-3"></img>
+                        <img src={logo} alt="Bootcamp logo" className="CampPage-logo mx-auto pt-3"></img>
                     </div>
                 </div>
                 <div className="row pt-3">

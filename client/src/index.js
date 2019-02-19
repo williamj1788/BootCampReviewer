@@ -12,7 +12,7 @@ import SignUp from './Components/SignUp';
 import Browse from './Components/Browser/Browse';
 import notFound from './Components/notFound';
 import CampPage from './Components/CampPage/CampPage';
-import Dashboard from './Components/Dashboard';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 
 

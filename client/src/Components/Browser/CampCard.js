@@ -15,7 +15,7 @@ export default class CampCard extends React.Component{
     render(){
         return(
             <div className="Campcard mx-3 my-5" onClick = {this.onClick}>
-                <img src={logo} className="Campcard-img pt-3"></img>
+                <img src={logo} alt="Bootcamp card logo" className="Campcard-img pt-3"></img>
                 <p className="Campcard-text">Lambda School is a 30 week, immersive program that gives 
                 you the tools and training you need to launch your new career—from the 
                 comfort of your own home</p>

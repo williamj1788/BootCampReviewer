@@ -18,9 +18,9 @@ class Login extends Component {
         <form className="Main-login my-0 mx-auto">
           <div className="offset">
             <p className="Main-Text pt-2 m-0">Welcome Back!</p>
-            <label className="Main-Input-text m-0" for="user">Username</label>
+            <label className="Main-Input-text m-0" htmlFor="user">Username</label>
             <input className="Main-Input form-control my-0 mx-auto w-50" type="text" name="user"/>
-            <label className="Main-Input-text m-0" for="pass">Password</label>
+            <label className="Main-Input-text m-0" htmlFor="pass">Password</label>
             <input className="Main-Input form-control my-0 mx-auto w-50" type="password" name="pass"/>
             <button onClick={this.onClick} type="button" className="Main-button btn btn-main mt-5 mb-0 mx-auto" aria-pressed="true"> Login</button>
             <div className="Account mt-3 mx-5" style={{display: "flex", justifyContent: "space-between"}}>
