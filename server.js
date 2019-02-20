@@ -145,6 +145,26 @@ var server = http.createServer((req, res) => {
             BootcampsDatabase = JSON.parse(BootcampsDatabase);
             res.end(JSON.stringify(BootcampsDatabase.bootcamps[parseInt(data.Campnumber)]))
         })
+    }else if(data.type ==='addReview'){
+        fs.readFile('Bootcamps.json', (err, BootcampsDatabase) => {
+            if (err) throw err;
+            let form = new multiparty.Form();
+            form.parse(req, function(err, fields, files){
+                if (err) throw err;
+                let review = {
+                    rating: parseInt(fields.rating[0]),
+                    reviewDescription: fields.reviewDescription[0],
+                    by: data.user,
+                }
+                
+                BootcampsDatabase = JSON.parse(BootcampsDatabase);
+                BootcampsDatabase.bootcamps[parseInt(data.Campnumber)].reviews.push(review);
+                fs.writeFile('Bootcamps.json', JSON.stringify(BootcampsDatabase,null,2), err =>{
+                    if(err) throw err;
+                })
+                res.end('Added Review');
+            })
+        })
     }
     else{
         res.end("we got nothing");

@@ -11,7 +11,28 @@
       "JPR": 0.96,
       "medium": 90000,
       "statement": "We work for you",
-      "reviews": []
+      "reviews": [
+        {
+          "rating": 10,
+          "reviewDescription": "This school is ok",
+          "by": "sfsdfafdasfdasdf"
+        },
+        {
+          "rating": 10,
+          "reviewDescription": "This school is ok",
+          "by": "sfsdfafdasfdasdf"
+        },
+        {
+          "rating": 4,
+          "reviewDescription": "sdfsdfsdsdfs",
+          "by": "sfsdfafdasfdasdf"
+        },
+        {
+          "rating": 8,
+          "reviewDescription": "sdfsdsf",
+          "by": "sfsdfafdasfdasdf"
+        }
+      ]
     },
     {
       "id": 1,
@@ -24,7 +45,13 @@
       "JPR": 0.01,
       "medium": 1,
       "statement": "sdfsdfsf",
-      "reviews": []
+      "reviews": [
+        {
+          "rating": 9,
+          "reviewDescription": "sfadadafd",
+          "by": "sfsdfafdasfdasdf"
+        }
+      ]
     }
   ]
 }
