@@ -275,6 +275,29 @@ $Offset: rgba(0,173,249,0.04);
     resize: none;
     border: 0;
 }
+.CampPage-AddReview{
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 5px 6px $BoxShadowsColors;
+}
+.CampPage-AddReview-title{
+    font-size: 25px;
+    font-family: 'Aleo', serif;
+    text-align: center;
+}
+.Camppage-AddReview-Rating{
+    width: 40%;
+}
+.CampPage-AddReview-textarea{
+    width: 70%;
+    height: 200px;
+    display: block;
+    resize: none;
+    background-color: #e2e2e246;
+    border-radius: 10px;
+}
 .CampPage-info{
     width: 100%;
     height: 100%;
