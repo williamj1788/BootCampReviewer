@@ -10,14 +10,15 @@ var navbarContent1 = {
     display: "flex", 
     justifyContent: "space-between",
     width: "100%",
-    padding: "0 50px"
+    padding: "0 10px"
 }
 
 var navbarContent2 = {
     display: "flex", 
     justifyContent: "space-between", 
     width: "400px",
-    marginRight: "50px"
+    minWidth: "fit-content",
+    marginRight: "10px"
 }
 
 
@@ -27,7 +28,7 @@ class BrowseNavbar extends React.Component{
         return(
             <div className="navbar navbar-expand-lg navbar-dark bg-main">
                 <div style={navbarContent1}>
-                    <Link to="/" className="navbar-brand" id="Brand">BootCampReviewer</Link>
+                    <p className="navbar-brand" id="Brand">BootCampReviewer</p>
                     <div style={navbarContent2}>
                     <Link to="/browse" className="nav-Dash mr-3" style={{display: this.props.display ? "initial": "none"}}>Browse</Link>
                         <Link to="/dashboard" className="nav-Dash mr-3">Dashboard</Link>

@@ -139,6 +139,12 @@ var server = http.createServer((req, res) => {
                 res.end(JSON.stringify(AllCampsAndUsers));
             })
         })
+    }else if(data.type === 'camp'){
+        fs.readFile('Bootcamps.json', (err, BootcampsDatabase) => {
+            if (err) throw err;
+            BootcampsDatabase = JSON.parse(BootcampsDatabase);
+            res.end(JSON.stringify(BootcampsDatabase.bootcamps[parseInt(data.Campnumber)]))
+        })
     }
     else{
         res.end("we got nothing");
