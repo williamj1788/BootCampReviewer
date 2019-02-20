@@ -8,17 +8,14 @@ export default class CampCard extends React.Component{
     }
     
     onClick(){
-        console.log("Clicked");
         this.props.history.push("/browse/2");
     }
     
     render(){
         
         var image = new Image();
-        // console.log(image);
         image.src = this.props.data.logo;
         image.alt = "Bootcamp card logo";
-        // image.className = "Campcard-img pt-3";
         return(
             <div className="Campcard mx-3 my-5" onClick = {this.onClick}>
                 <img src={image.src} alt={image.alt} className="Campcard-img pt-3"></img>

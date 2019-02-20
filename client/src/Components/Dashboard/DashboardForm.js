@@ -4,7 +4,7 @@ export default class DashboardForm extends React.Component{
     
     constructor(props){
         super(props);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     handleSubmit(event){
@@ -14,12 +14,21 @@ export default class DashboardForm extends React.Component{
         var xhr = new XMLHttpRequest();
         xhr.onload = () => {
             let res = xhr.response;
-            console.log(res);
+            console.log(JSON.parse(res));
         }
         xhr.open('POST', "http://localhost:8080/?type=create",true);
         xhr.send(data);
         
         return false;
+    }
+    componentDidMount(){
+        var xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            let res = xhr.response;
+            console.log(JSON.parse(res));
+        }
+        xhr.open('POST', "http://localhost:8080/?type=dashboard",true);
+        xhr.send();
     }
     
     render(){
@@ -40,7 +49,7 @@ export default class DashboardForm extends React.Component{
                                 <label className="Dashboard-form-text" htmlFor="description">Description:</label>
                             </div>
                             <div className="col-7">
-                                <textarea name="description" className="form-control" maxlength="250" style={{resize: "none"}} required></textarea>
+                                <textarea name="description" className="form-control" maxLength="250" style={{resize: "none"}} required></textarea>
                             </div>
                         </div>
                         <div className="row pt-3">
@@ -56,7 +65,7 @@ export default class DashboardForm extends React.Component{
                                 <label className="Dashboard-form-text" htmlFor="CostInDetail">Cost In Detail:</label>
                             </div>
                             <div className="col-7">
-                                <textarea name="CostInDetail" className="form-control" maxlength="200" style={{resize: "none"}} required></textarea>
+                                <textarea name="CostInDetail" className="form-control" maxLength="200" style={{resize: "none"}} required></textarea>
                             </div>
                         </div>
                         <div className="row pt-3">
@@ -72,7 +81,7 @@ export default class DashboardForm extends React.Component{
                                 <label className="Dashboard-form-text" htmlFor="JPR">Jop Placement Rate:</label>
                             </div>
                             <div className="col-7">
-                                <input type="number" name="JPR" className="form-control" min="0" max="1" required/>
+                                <input type="number" name="JPR" className="form-control" min="0" max="1" step="0.01" required/>
                             </div>
                         </div>
                         <div className="row pt-3">
@@ -88,15 +97,15 @@ export default class DashboardForm extends React.Component{
                                 <label className="Dashboard-form-text" htmlFor="statement">Mission Statement:</label>
                             </div>
                             <div className="col-7">
-                                <textarea name="statement" className="form-control" maxlength="75" style={{resize: "none"}} required></textarea>
+                                <textarea name="statement" className="form-control" maxLength="75" style={{resize: "none"}} required></textarea>
                             </div>
                         </div>
                         <div className="row pt-3">
                             <div className="col-5">
-                                <label className="Dashboard-form-text" id="inputGroupFile01" htmlFor="file">Icon:</label>
+                                <label className="Dashboard-form-text" id="inputGroupFile01" htmlFor="logo">Icon:</label>
                             </div>
                             <div className="col-7">
-                                <input type="file" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" />
+                                <input type="file" id="inputGroupFile01" name="logo" aria-describedby="inputGroupFileAddon01" />
                             </div>
                         </div>
                         <div className="row pt-3">
