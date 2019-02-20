@@ -12,23 +12,10 @@ export default class DashboardForm extends React.Component{
         var form = document.getElementById("boot-form");
         const data = new FormData(form);
         var xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            let res = xhr.response;
-            console.log(JSON.parse(res));
-        }
         xhr.open('POST', "http://localhost:8080/?type=create",true);
         xhr.send(data);
         
         return false;
-    }
-    componentDidMount(){
-        var xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            let res = xhr.response;
-            console.log(JSON.parse(res));
-        }
-        xhr.open('POST', "http://localhost:8080/?type=dashboard",true);
-        xhr.send();
     }
     
     render(){

@@ -72,6 +72,7 @@ var server = http.createServer((req, res) => {
             }
             camps.bootcamps.forEach((camp) =>{
                 let obj = {
+                    id: camp.id,
                     logo: camp.logo,
                     description: camp.description,
                     rating: camp.rating,
@@ -88,11 +89,14 @@ var server = http.createServer((req, res) => {
             let form = new multiparty.Form();
             form.parse(req, function(err, fields, files){
                 if (err) throw err;
+                
+                let camps = JSON.parse(context);
+                
                 let imageBit = fs.readFileSync(files.logo[0].path,{ encoding: 'base64' });
                 imageBit = `data:${files.logo[0].headers['content-type']};base64,` + imageBit;
                 
-                
                 let newCamp = {
+                    id: camps.bootcamps.length,
                     name: fields.Name[0],
                     logo: imageBit,
                     description: fields.description[0],
@@ -102,14 +106,38 @@ var server = http.createServer((req, res) => {
                     JPR: parseFloat(fields.JPR[0]),
                     medium: parseInt(fields.medium[0]),
                     statement: fields.statement[0],
+                    reviews:[]
                 }
-                let camps = JSON.parse(context);
+
+                
                 camps.bootcamps.push(newCamp);
                 fs.writeFile('Bootcamps.json', JSON.stringify(camps,null,2), (err) => {
                     if(err) throw err;
                 });
                 res.end(JSON.stringify(newCamp));
             });
+        })
+    }else if(data.type === 'dashboard'){
+        fs.readFile('Bootcamps.json', (err, BootcampsDatabase) => {
+            if (err) throw err;
+            fs.readFile('Users.json', (err, UsersDatabase) => {
+                if(err) throw err;
+                BootcampsDatabase = JSON.parse(BootcampsDatabase);
+                UsersDatabase = JSON.parse(UsersDatabase);
+                
+                let AllCampsAndUsers = {
+                    users:[],
+                    bootcamps:[],
+                }
+                BootcampsDatabase.bootcamps.forEach(camp => {
+                    AllCampsAndUsers.bootcamps.push(camp.name);
+                });
+                UsersDatabase.users.forEach(user => {
+                    AllCampsAndUsers.users.push(user.username);
+                });
+                
+                res.end(JSON.stringify(AllCampsAndUsers));
+            })
         })
     }
     else{

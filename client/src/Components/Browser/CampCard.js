@@ -8,7 +8,7 @@ export default class CampCard extends React.Component{
     }
     
     onClick(){
-        this.props.history.push("/browse/2");
+        this.props.history.push(`/browse/${this.props.data.id + 1}`);
     }
     
     render(){
