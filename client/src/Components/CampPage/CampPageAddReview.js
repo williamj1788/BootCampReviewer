@@ -15,7 +15,7 @@ class CampPageAddReview extends React.Component{
         var form = document.getElementById("addReviewForm");
         const data = new FormData(form);
         xhr.load = () => {
-            console.log(xhr.response);
+            // console.log(xhr.response);
         }
         xhr.open('POST', `http://localhost:8080/?type=addReview&Campnumber=${this.props.id}&user=${this.props.user}`,true);
         xhr.send(data);

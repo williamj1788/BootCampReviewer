@@ -17,6 +17,13 @@ export default class CampPageReview extends React.Component{
     }
     
     render(){
+        let reviews = this.props.reviews;
+        // console.log(typeof reviews);
+        console.log(reviews[0]);
+        // let reviewsText = reviews.reduce((acc, review) =>{
+        //     return acc + review.by + '\n' + review.rating + '\n' + review.reviewDescription + '\n\n';
+        // });
+        // value={reviewsText}
         return(
             <div className="col-md-12 col-xl-6 pt-sm-5 pt-xl-0 order-3 order-md-3 order-xl-1 mb-5">
                 <div className="CampPage-review mx-auto">
