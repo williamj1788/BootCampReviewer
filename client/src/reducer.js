@@ -1,5 +1,6 @@
 const initialState = {
-    user: localStorage.getItem('user') || ''
+    user: localStorage.getItem('user') || '',
+    
 };
 
 function userReducer(state = initialState, action) {
