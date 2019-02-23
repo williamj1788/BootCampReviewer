@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 class CampPage extends React.Component{
     
     componentDidMount(){
-        if(!this.props.campInfo.name){
+        if(!this.props.campInfo.id || this.props.campInfo.id !== parseInt(this.props.match.params.id)){
             fetch(`http://localhost:8080/?type=camp&Campnumber=${this.props.match.params.id}`)
             .then(req => req.json())
             .then(campInfo => this.props.dispatch(setCampInfo(campInfo)))
@@ -23,6 +23,7 @@ class CampPage extends React.Component{
     }
     
     render(){
+        console.log(this.props.campInfo);
         return(
             <div>
                 <div className="offset">

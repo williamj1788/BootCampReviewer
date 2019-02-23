@@ -38,6 +38,15 @@ function userReducer(state = initialState, action) {
         return Object.assign({}, state, {
             campInfo: copy
         });
+    }else if(action.type === 'UPDATE_CAMPS'){
+        let copy = state.campCards;
+        if(!copy){
+            return state;
+        }
+        copy.push(action.payload);
+        return Object.assign({}, state, {
+            campCards: copy
+        });
     }
     return state;
 };

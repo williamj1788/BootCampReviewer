@@ -16,3 +16,6 @@ export function setCampInfo(payload){
 export function addReview(payload){
     return { type: 'ADD_REVIEW', payload};
 }
+export function updateCamps(payload){
+    return { type: 'UPDATE_CAMPS', payload};
+}

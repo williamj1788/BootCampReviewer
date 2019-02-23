@@ -89,6 +89,7 @@ var server = http.createServer((req, res) => {
             res.end(JSON.stringify(cardData));
         })
     }else if(data.type === 'create'){
+        console.log('newCamp');
         fs.readFile('Bootcamps.json', (err,context) => {
             if(err) throw err;
             let form = new multiparty.Form();
@@ -113,13 +114,21 @@ var server = http.createServer((req, res) => {
                     statement: fields.statement[0],
                     reviews:[]
                 }
-
-                
+                console.log(newCamp);
+                let card = {
+                    id: camps.bootcamps.length,
+                    logo: imageBit,
+                    description: fields.description[0],
+                    rating: 0,
+                    cost: parseInt(fields.cost[0]),
+                    duration: parseInt(fields.duration[0]),
+                }
                 camps.bootcamps.push(newCamp);
+
                 fs.writeFile('Bootcamps.json', JSON.stringify(camps,null,2), (err) => {
                     if(err) throw err;
                 });
-                res.end(JSON.stringify(newCamp));
+                res.end(JSON.stringify(card));
             });
         })
     }else if(data.type === 'dashboard'){

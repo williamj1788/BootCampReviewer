@@ -1,6 +1,12 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { updateCamps } from '../action';
 
-export default class DashboardForm extends React.Component{
+const mapStateToProps = state => {
+    return { user: state.user };
+  }; 
+
+class DashboardForm extends React.Component{
     
     constructor(props){
         super(props);
@@ -11,10 +17,13 @@ export default class DashboardForm extends React.Component{
         event.preventDefault();
         var form = document.getElementById("boot-form");
         const data = new FormData(form);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', "http://localhost:8080/?type=create",true);
-        xhr.send(data);
-        
+        fetch('http://localhost:8080/?type=create', {
+            method: 'POST',
+            body: data
+        })
+        .then(req => req.json())
+        .then(card => this.props.dispatch(updateCamps(card)));
+        form.reset();
         return false;
     }
     
@@ -106,3 +115,5 @@ export default class DashboardForm extends React.Component{
         )
     }
 }
+DashboardForm = connect(mapStateToProps)(DashboardForm);
+export default DashboardForm;
