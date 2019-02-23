@@ -30,6 +30,14 @@ function userReducer(state = initialState, action) {
         return Object.assign({}, state, {
             campInfo: action.payload
         });
+    }else if(action.type === 'ADD_REVIEW'){
+        let copy = Object.assign({}, state.campInfo);
+        copy.reviews.push(action.payload);
+        console.log(action.payload);
+        console.log(copy);
+        return Object.assign({}, state, {
+            campInfo: copy
+        });
     }
     return state;
 };

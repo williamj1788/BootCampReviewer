@@ -3,7 +3,7 @@ import CampPageAddReview from './CampPageAddReview';
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {
-    return { reviews: state.campInfo.reviews };
+    return { reviews: state.campInfo.reviews, c: state.campInfo, user: state.user };
 };
 
 class CampPageReview extends React.Component{
@@ -13,10 +13,9 @@ class CampPageReview extends React.Component{
             showAddReview: false,
             showAddReviewButton: true,
         }
-        this.onClick = this.onClick.bind(this);
+        this.toggleAddReview = this.toggleAddReview.bind(this);
         this.ShouldShowAddReviewButtion = this.ShouldShowAddReviewButtion.bind(this);
         this.SetShowAddReviewButton = this.SetShowAddReviewButton.bind(this);
-        this.addReview = this.addReview.bind(this);
     }
 
     componentDidMount(){
@@ -45,12 +44,8 @@ class CampPageReview extends React.Component{
             showAddReviewButton: boolean
         });
     }
-
-    addReview(review){
-        
-    }
     
-    onClick(){
+    toggleAddReview(){
         this.setState({
             showAddReview: this.state.showAddReview ? false : true
         });
@@ -60,11 +55,15 @@ class CampPageReview extends React.Component{
         let reviews = this.props.reviews;
         let reviewsText = '';
         let visible = 'visible';
+        let show = true;
         if(reviews){
+            // console.log(this.props.reviews);
             if(!this.ShouldShowAddReviewButtion()){
+                show = false;
                 visible = 'hidden';
             }
             reviewsText = reviews.reduce((acc, review) =>{
+                // console.log(review);
                 return acc + review.by + '\nRating: ' + review.rating + '\n' + review.reviewDescription + '\n\n';
             },'');
         }
@@ -73,9 +72,9 @@ class CampPageReview extends React.Component{
                 <div className="CampPage-review mx-auto">
                     <h1 className="CampPage-card-title pt-3">Reviews</h1>
                     <textarea className="CampPage-review-info" value={reviewsText} readOnly></textarea>
-                    <button onClick={this.onClick} type="button" className="btn btn-primary float-right" style={{position: "relative",right: "30px", visibility: visible}}>Show Review Tab</button>
+                    <button onClick={this.toggleAddReview} type="button" className="btn btn-primary float-right" style={{position: "relative",right: "30px", visibility: visible}}>Show Review Tab</button>
                 </div>
-                <CampPageAddReview id={this.props.id} show={this.state.showAddReview} showToggle={this.onClick} addReview={this.addReview} />
+                <CampPageAddReview id={this.props.id} show={this.state.showAddReview} toggle={this.toggleAddReview}/>
             </div>
         )
     }

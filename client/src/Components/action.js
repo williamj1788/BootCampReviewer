@@ -13,3 +13,6 @@ export function setBootcampsDashboard(payload){
 export function setCampInfo(payload){
     return { type: 'SET_CAMP_INFO', payload};
 }
+export function addReview(payload){
+    return { type: 'ADD_REVIEW', payload};
+}

@@ -71,11 +71,16 @@ var server = http.createServer((req, res) => {
                 bootcamps: []
             }
             camps.bootcamps.forEach((camp) =>{
+                let rate = 0;
+                if(camp.reviews.length > 0){
+                    rate = camp.reviews.reduce((acc, review) => {return acc + review.rating},0) / camp.reviews.length;
+                    rate = Math.floor(rate * 100) / 100;
+                }
                 let obj = {
                     id: camp.id,
                     logo: camp.logo,
                     description: camp.description,
-                    rating: camp.rating,
+                    rating: rate,
                     cost: camp.cost,
                     duration: camp.duration,
                 }

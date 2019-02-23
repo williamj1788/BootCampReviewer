@@ -1,31 +1,29 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { addReview } from '../action';
+
 const mapStateToProps = state => {
-    return { user: state.user };
+    return { user: state.user, reviews: state.campInfo.review };
 };
 
 class CampPageAddReview extends React.Component{
     constructor(props){
         super(props);
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
-        this.handleAddReview = this.handleAddReview.bind(this);
-    }
-    handleAddReview(review){
-        this.props.addReview(review);
     }
     
     handleOnSubmit(event){
         event.preventDefault();
-        let xhr = new XMLHttpRequest();
         var form = document.getElementById("addReviewForm");
         const data = new FormData(form);
-        xhr.onload = () => {
-            this.handleAddReview(JSON.parse(xhr.response));
-        }
-        xhr.open('POST', `http://localhost:8080/?type=addReview&Campnumber=${this.props.id}&user=${this.props.user}`,true);
-        xhr.send(data);
+        fetch(`http://localhost:8080/?type=addReview&Campnumber=${this.props.id}&user=${this.props.user}`, {
+            method: 'POST',
+            body: data
+        })
+        .then(req => req.json())
+        .then(review => this.props.dispatch(addReview(review)));
         form.reset();
-        this.props.showToggle();
+        this.props.toggle();
     }
     
     render(){
