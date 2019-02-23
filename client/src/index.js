@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './Components/store';
 import './Normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';

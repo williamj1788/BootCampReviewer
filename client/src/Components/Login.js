@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { setUser } from '../action';
+import { setUser } from './action';
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {

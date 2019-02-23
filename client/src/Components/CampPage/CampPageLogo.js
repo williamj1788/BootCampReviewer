@@ -1,7 +1,15 @@
 import React from 'react';
+import { connect } from "react-redux";
 
+const mapStateToProps = state => {
+    return {
+        logo: state.campInfo.logo,
+        statement: state.campInfo.statement, 
+    };
+}; 
 
-export default class CampPageLogo extends React.Component{
+class CampPageLogo extends React.Component{
+    
     
     render(){
         return(
@@ -20,3 +28,5 @@ export default class CampPageLogo extends React.Component{
         )
     }
 }
+CampPageLogo = connect(mapStateToProps)(CampPageLogo);
+export default CampPageLogo;

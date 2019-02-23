@@ -1,11 +1,30 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { setBootcampsDashboard } from '../action';
 
-export default class DashboardBootcamp extends React.Component{
+const mapStateToProps = state => {
+    return { bootcampsNames: state.bootcampsNames };
+}; 
+
+class DashboardBootcamp extends React.Component{
+    
+    componentDidMount(){
+        if(!this.props.bootcampsNames){
+            fetch('http://localhost:8080/?type=dashboard')
+            .then(req => req.json())
+            .then(database => {this.props.dispatch(setBootcampsDashboard(database.bootcamps))})
+        }
+    }
+    
     render(){
-        let Bootcamps = this.props.Bootcamps;
-        let Bootcampslist = this.props.Bootcamps.reduce((acc, value) => {
-            return acc + value + '\n';
-        },'');
+        let Bootcamps = [];
+        let Bootcampslist = '';
+        if(this.props.bootcampsNames){
+            Bootcamps = this.props.Bootcamps;
+            Bootcampslist = this.props.Bootcamps.reduce((acc, value) => {
+                return acc + value + '\n';
+            },'');
+        }
         return(
             <div>
                 <h2 className="Dashboard-title pt-3">Bootcamps</h2>
@@ -19,3 +38,5 @@ export default class DashboardBootcamp extends React.Component{
         )
     }
 }
+DashboardBootcamp = connect(mapStateToProps)(DashboardBootcamp);
+export default DashboardBootcamp;

@@ -1,11 +1,30 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { setUsersDashboard } from '../action';
 
-export default class DashboardUsers extends React.Component{
+const mapStateToProps = state => {
+    return { usersNames: state.usersNames };
+}; 
+
+class DashboardUsers extends React.Component{
+    
+    componentDidMount(){
+        if(!this.props.usersNames){
+            fetch('http://localhost:8080/?type=dashboard')
+            .then(req => req.json())
+            .then(database => {this.props.dispatch(setUsersDashboard(database.users))})
+        }
+    }
+
     render(){
-        let users = this.props.Users;
-        let userlist = this.props.Users.reduce((acc, value) => {
-            return acc + value + '\n';
-        },'');
+        let users = [];
+        let userlist = '';
+        if(this.props.usersNames){
+            users = this.props.usersNames;
+            userlist = this.props.Users.reduce((acc, value) => {
+                return acc + value + '\n';
+            },'');
+        }
         return(
             <div>
                 <h2 className="Dashboard-title pt-3">Users</h2>
@@ -19,3 +38,5 @@ export default class DashboardUsers extends React.Component{
         )
     }
 }
+DashboardUsers = connect(mapStateToProps)(DashboardUsers);
+export default DashboardUsers;

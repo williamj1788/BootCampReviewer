@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { setUser } from '../action';
+import { setUser } from './action';
 
 const mapStateToProps = state => {
     return { user: state.user };

@@ -3,7 +3,7 @@ import CampPageAddReview from './CampPageAddReview';
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {
-    return { user: state.user };
+    return { reviews: state.campInfo.reviews };
 };
 
 class CampPageReview extends React.Component{
@@ -11,8 +11,7 @@ class CampPageReview extends React.Component{
         super(props);
         this.state = {
             showAddReview: false,
-            showAddReviewButton: this.ShouldShowAddReviewButtion(),
-            reviews: [],
+            showAddReviewButton: true,
         }
         this.onClick = this.onClick.bind(this);
         this.ShouldShowAddReviewButtion = this.ShouldShowAddReviewButtion.bind(this);
@@ -23,7 +22,6 @@ class CampPageReview extends React.Component{
     componentDidMount(){
         this.setState({
             showAddReviewButton: this.ShouldShowAddReviewButtion(),
-            reviews: this.props.reviews
         });
     }
 
@@ -33,9 +31,7 @@ class CampPageReview extends React.Component{
             let userReview = reviews.filter((review) => {
                 return review.by === this.props.user;
             });
-            // console.log(userReview);
             if(userReview.length > 0){
-                // console.log('false');
                 return false;
             }else{
                 return true;
@@ -51,13 +47,7 @@ class CampPageReview extends React.Component{
     }
 
     addReview(review){
-        console.log(this.props.reviews)
-        let temp = this.state.reviews;
-        console.log(this.state.reviews);
-        // temp.push(review);
-        // this.setState({
-        //     reviews: temp,
-        // });
+        
     }
     
     onClick(){
@@ -67,25 +57,16 @@ class CampPageReview extends React.Component{
     }
     
     render(){
-        // console.log('Review Rendered');
-        let reviews = this.state.reviews;
-        // console.log(reviews);
+        let reviews = this.props.reviews;
         let reviewsText = '';
         let visible = 'visible';
-        // || reviews !== []
-        // console.log(reviews !== undefined);
-        // console.log(reviews.length);
         if(reviews){
-            // console.log('Reviews exist')
             if(!this.ShouldShowAddReviewButtion()){
                 visible = 'hidden';
             }
             reviewsText = reviews.reduce((acc, review) =>{
                 return acc + review.by + '\nRating: ' + review.rating + '\n' + review.reviewDescription + '\n\n';
             },'');
-            // console.log(reviewsText);
-        }else{
-            // console.log('Reviews dont exist')
         }
         return(
             <div className="col-md-12 col-xl-6 pt-sm-5 pt-xl-0 order-3 order-md-3 order-xl-1 mb-5">

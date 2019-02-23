@@ -1,6 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 
-export default class CampPageDescription extends React.Component{
+const mapStateToProps = state => {
+    return { description: state.campInfo.description };
+}; 
+
+class CampPageDescription extends React.Component{
     render(){
         return(
             <div className="col-md-6 col-xl-3 pt-sm-5 pt-md-0 order-1 order-md-1 order-xl-1">
@@ -12,3 +17,5 @@ export default class CampPageDescription extends React.Component{
         )
     }
 }
+CampPageDescription = connect(mapStateToProps)(CampPageDescription);
+export default CampPageDescription;

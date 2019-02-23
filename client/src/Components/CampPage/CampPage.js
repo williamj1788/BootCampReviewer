@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { setCampInfo } from '../action';
 
 import CampPageLogo from './CampPageLogo';
 import CampPageDescription from './CampPageDescription';
@@ -6,39 +8,31 @@ import CampPageReview from './CampPageReview';
 import CampPageDetails from './CampPageDetails';
 import BrowseNavbar from '../Browser/BrowseNavbar';
 
+const mapStateToProps = state => {
+    return { campInfo: state.campInfo };
+}; 
 
-export default class CampPage extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            campInfo: {}
-        }
-    }
+class CampPage extends React.Component{
     
     componentDidMount(){
-        var xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            let info = JSON.parse(xhr.response);
-            this.setState({
-                campInfo: info,
-            });
+        if(!this.props.campInfo.name){
+            fetch(`http://localhost:8080/?type=camp&Campnumber=${this.props.match.params.id}`)
+            .then(req => req.json())
+            .then(campInfo => this.props.dispatch(setCampInfo(campInfo)))
         }
-        xhr.open('POST', `http://localhost:8080/?type=camp&Campnumber=${this.props.match.params.id}`,true);
-        xhr.send();
     }
     
     render(){
-        console.log(this.state.campInfo.reviews);
         return(
             <div>
                 <div className="offset">
                     <BrowseNavbar display={true}/>
                     <div className="container-fluid">
-                        <CampPageLogo logo={this.state.campInfo.logo} statement={this.state.campInfo.statement}/>
+                        <CampPageLogo />
                         <div className="CampPage-info row pt-3">
-                            <CampPageDescription description={this.state.campInfo.description} />
-                            <CampPageReview id={this.props.match.params.id} reviews={this.state.campInfo.reviews} addReview={this.addReview}/>
-                            <CampPageDetails cost={this.state.campInfo.CostInDetail} duration={this.state.campInfo.duration} JPR={this.state.campInfo.JPR} medium={this.state.campInfo.medium} />
+                            <CampPageDescription />
+                            <CampPageReview id={this.props.match.params.id} addReview={this.addReview}/>
+                            <CampPageDetails  />
                         </div>
                     </div>
                 </div>
@@ -46,3 +40,5 @@ export default class CampPage extends React.Component{
         )
     }
 }
+CampPage = connect(mapStateToProps)(CampPage);
+export default CampPage;
