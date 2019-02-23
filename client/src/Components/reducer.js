@@ -47,6 +47,19 @@ function userReducer(state = initialState, action) {
         return Object.assign({}, state, {
             campCards: copy
         });
+    }else if(action.type === 'SORT_CARDS'){
+        if(state.campCards){
+            if(state.campCards.bootcamps.length > 0){
+                
+                let copyCards = state.campCards;
+                console.log(state.campCards);
+                copyCards.bootcamps.sort((a,b) => {return b[action.payload] - a[action.payload]});
+                console.log(copyCards);
+                return Object.assign({}, state, {
+                    campCards: copyCards
+                });
+            }
+        }
     }
     return state;
 };

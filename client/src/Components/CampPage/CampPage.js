@@ -23,7 +23,6 @@ class CampPage extends React.Component{
     }
     
     render(){
-        console.log(this.props.campInfo);
         return(
             <div>
                 <div className="offset">

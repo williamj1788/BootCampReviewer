@@ -50,7 +50,13 @@
       "JPR": 0.01,
       "medium": 1,
       "statement": "s",
-      "reviews": []
+      "reviews": [
+        {
+          "rating": 6,
+          "reviewDescription": "jkhj",
+          "by": "qqqqqqqqqqqq"
+        }
+      ]
     },
     {
       "id": 2,
@@ -63,7 +69,13 @@
       "JPR": 0.03,
       "medium": 3,
       "statement": "fffffffffff",
-      "reviews": []
+      "reviews": [
+        {
+          "rating": 10,
+          "reviewDescription": "l",
+          "by": "qqqqqqqqqqqq"
+        }
+      ]
     }
   ]
 }

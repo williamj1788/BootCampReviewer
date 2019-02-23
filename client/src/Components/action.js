@@ -19,3 +19,6 @@ export function addReview(payload){
 export function updateCamps(payload){
     return { type: 'UPDATE_CAMPS', payload};
 }
+export function sortCards(payload){
+    return { type: 'SORT_CARDS', payload};
+}
