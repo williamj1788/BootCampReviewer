@@ -53,3 +53,7 @@ If not it can be viewed on localhost 3000
 ### Dashboard
 
 ![Dashboard](./Dashboard.png)
+
+### Camp
+
+![Camp](./Camp.png)
